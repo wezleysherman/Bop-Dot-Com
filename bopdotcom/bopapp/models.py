@@ -12,9 +12,9 @@ from django.dispatch import receiver
 # Credit: Vitor Freitas for the resource
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	userName = models.CharField('firstName', max_length=256, blank=True)
+	userName = models.CharField('userName', max_length=256, blank=True)
 	firstName = models.CharField('firstName', max_length=256, blank=True)
-	lastName = models.CharField('firstName', max_length=256, blank=True)
+	lastName = models.CharField('lastName', max_length=256, blank=True)
 	birthDate = models.DateTimeField(auto_now_add=True)
 	profilePicture = models.ImageField(upload_to='profile_pictures', null=True, blank=True)
 
