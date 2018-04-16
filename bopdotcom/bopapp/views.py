@@ -4,8 +4,8 @@ from django.db.models import Q
 
 def index(request):
 	user = request.user
-	friends = Friend.objects.filter(Q(user1_id = user.id), Q(user2_id = user.id)).values_list('user1_id', flat=True)
-	friendBops = Bop_User.objects.filter(Q(userTo_id__in = friends), Q(userFrom_id__in = friends))
+	friends = Friend.objects.filter(Q(user1_id = user.id) | Q(user2_id = user.id)).values_list('user1_id', 'user2_id')
+	friendBops = Bop_User.objects.filter(Q(userTo_id__in = [f for f in friends]) | Q(userFrom_id__in = [f for f in friends]))
 	return render(request, 'mainpage.html', {
 		'current_page': 'index',
 		'name': 'Bop!',
