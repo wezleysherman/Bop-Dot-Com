@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div style="color: white; width: 100%; height: 100%; text-align: center;">
+{% for bop in bops %}
+	<div class="bop">
+		<span style="font-weight: bolder; font-size: 30px;"><img class="profile-picture" src="{{bop.userFrom.profilePicture.url}}" alt="Profile Picture" style="margin-right: 15px; margin-top: 0px;">
+{{ bop.userFrom.userName }}</span> <span style="font-weight: bolder; font-size: 20px; margin-left: 10px;">Bopped!</span> <span style="font-weight: bolder; font-size: 30px;"><img class="profile-picture" src="{{bop.userTo.profilePicture.url}}" alt="Profile Picture" style="margin-right: 15px; margin-left: 10px; margin-top:0px;">{{ bop.userTo.userName }}</span>
+		<br>
+		<br>
+		<span style="font-weight: bolder; font-size: 18px;">"{{ bop.bop.message }}"</span>
+	</div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.urls import path, include
 from django.contrib import admin
+from django.views.static import serve
+
 
 urlpatterns = [
 	path('', include('bopapp.urls')),
     url(r'^admin/', admin.site.urls),
+    path('<path:path>', serve, {'document_root': ''})
 ]

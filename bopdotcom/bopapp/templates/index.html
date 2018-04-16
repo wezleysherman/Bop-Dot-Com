@@ -7,10 +7,23 @@
 <body>
 <div class="main" style="min-height: 100%; min-width: 100%;">
 	<div class="nav-bar" style="min-width: 100%; height: 50px;">
-		<div style="display: inline-block;">Bop!</div>
-		<div style="">dot com</div>
+		<div style="display: inline-block; float:left; width: 200px">
+			<div style="display: inline-block; color: white;">Bop!</div>
+			<div style="color: white;">dot com</div>
+		</div>
+		<div class="nav-item" style="color: white; display: inline-block; float:right; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
+			<img class="profile-picture" src="{{user.profile.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px;">
+			<div class="user-name">{{ user.profile.userName }}</div>
+		</div>
+		<div class="nav-item" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
+			<div style="font-size: 22px; font-weight: bolder; margin-top:10px;">Feed</div>
+		</div>
+		<div class="nav-item" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px; border-right-width: 1px;">
+			<div style="font-size: 22px; font-weight: bolder; margin-top:10px;">My Groups</div>
+		</div>
 	</div>
-
+	{% block content %}
+	{% endblock %}
 </div>
 </body>
 
