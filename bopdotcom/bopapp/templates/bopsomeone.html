@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class='bopsomeone' style="color: white; width: 100%; height: 100%; text-align: center; overflow-y: auto;">
+	<div style="font-size: 48px; font-weight: bolder; margin: auto;">Select a friend you'd like to bop!</div>
+	{% for friend in friends %}
+	<div class="bop friend" data-friend="{{friend.id}}" style="text-align: center">
+		<img class="profile-picture" src="{{friend.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px; height: 80px; width: 80px; margin-top:6px">
+		<span style="margin-left: 10px; font-weight: bolder; font-size: 44px; padding-top: 6px;">{{friend.userName}}</span>
+	</div>
+	{% endfor %}
+
+	<div class="bop" id="message" style="text-align: center; height: 225px; position: absolute; top: 50px; left: 25%; border-width: 5px; visibility: hidden;"><span style="font-size: 24px; font-weight: bolder;">Enter your bop Message!</span><br><textarea id="bopmessage" style="resize:none; color: black;" cols="40" rows="4" style=""></textarea><div id="bop-btn" class="bop-btn"><i class="fas fa-hand-rock"></i>  BOP!</div></div>
+</div>
+<script src="{% static 'js/bopsomeone.js' %}"></script>
+{% endblock %}
+
+

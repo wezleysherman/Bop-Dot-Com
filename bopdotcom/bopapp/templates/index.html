@@ -3,6 +3,10 @@
 	<title>{{ name }}</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
 	<link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+	<script src="{% static 'jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'jquery/jquery.cookie.js' %}"></script>
+	<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+	<script defer src="{% static 'js/fontawesome/fontawesome-all.js' %}"></script>
 </head>
 <body>
 <div class="main" style="min-height: 100%; min-width: 100%;">
@@ -20,21 +24,17 @@
 			{% endif %}
 			<div class="user-name">{{ user.profile.userName }}</div>
 		</div>
-		<div class="nav-item" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
-			<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">Bop Someone!</div>
-		</div>
-		<div class="nav-item" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
-			<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">Achievements</div>
-		</div>
+		<a href = "{% url 'bopsomeone' %}">
+			<div class="nav-item {% if current_page == 'bop_someone' %} active {% endif %}" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
+				<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">Bop Someone!</div>
+			</div>
+		</a>
 		<div class="nav-item" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px; border-right-width: 1px;">
 			<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">My Groups</div>
 		</div>
 	</div>
 	{% block content %}
 	{% endblock %}
+	<div style="height:100px;"></div>
 </div>
 </body>
-
-<script src="{% static 'jquery/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
-<script defer src="{% static 'js/fontawesome/fontawesome-all.js' %}"></script>

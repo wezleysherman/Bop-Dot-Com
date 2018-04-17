@@ -3,8 +3,41 @@
 	background: #432e64;
 }
 
+.bop-btn {
+	background:#FFB326;
+	border-radius: 5px;
+	width: 150px;
+	height: 60px;
+	margin: auto;
+	margin-top: 10px;
+	font-weight: bolder;
+	font-size: 24px;
+	padding-top: 8px;
+	border: solid;
+	border-width: 5px;
+	border-color: white;
+}
+
+.bop-btn:hover {
+	cursor: pointer;
+	background: #FCCB6F;
+}
+
 .nav-bar {
 	background: #0E004A;
+	border: solid;
+	border-width: 0px;
+	border-color: white;
+	border-bottom-width: 1px;
+}
+
+.friend:hover {
+	background: #281A66;	
+	cursor: pointer;
+}
+
+.active {
+	background: #281A66;
 }
 
 .nav-item:hover {
@@ -40,6 +73,10 @@
 	padding-right: 20px;
 	padding-top:10px;
 	padding-bottom: 10px;
+	border: solid;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 2px;
 }
 
 .logo {

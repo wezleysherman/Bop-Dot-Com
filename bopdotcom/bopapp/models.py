@@ -10,6 +10,7 @@ from django.dispatch import receiver
 # User Profile model extensions referenced/used from:
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html
 # Credit: Vitor Freitas for the resource
+# We are not claiming ownership of the method utilized to extend user profiles.
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	userName = models.CharField('userName', max_length=256, blank=True)
