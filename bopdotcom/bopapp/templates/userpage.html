@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class='userpage' style="color: white; width: 100%; height: content-fit; text-align: center; overflow-y: auto;">
+	<div style="font-weight: bolder; font-size: 68px;">{{user_view.profile.userName}}</div>
+	<br>
+	<div style="font-weight: bolder; font-size: 42px;">Achievements:</div>
+	<div>
+		{% for ac in achievements %}
+		<div class="bop" style="width: 225px; height: 150px; display: inline-block; text-align: center;"><div style="font-weight: bolder;">{{ac.achievement.description}}</div><br><i class="fas fa-trophy fa-4x"></i></div>
+		{% endfor %}
+	</div>
+	<br>
+	<div style="font-weight: bolder; font-size: 42px;">Groups:</div>
+	<div>
+		{% for gc in groups %}
+		<div class="bop" style="width: 225px; height: 150px; display: inline-block; text-align: center;"><div style="font-weight: bolder;">{{gc.group.groupName}}</div><br><i class="fas fa-users fa-4x"></i></div>
+		{% endfor %}
+	</div>
+	<br>
+	<div style="font-weight: bolder; font-size: 42px;">Friends:</div>
+	<div>
+		{% for friend in friends %}
+		<a href="{% url 'userpage' friend.id %}" style="color: white; text-decoration: none;">
+			<div class="bop friend" style="text-align: center">
+				<img class="profile-picture" src="{{friend.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px; height: 80px; width: 80px; margin-top:6px">
+				<span style="margin-left: 10px; font-weight: bolder; font-size: 44px; padding-top: 6px;">{{friend.userName}}</span>
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+	<div style="height:150px;"></div>
+</div>
+{% endblock %}
+
+

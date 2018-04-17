@@ -18,6 +18,16 @@
 	border-color: white;
 }
 
+
+.user-link {
+	color:white;
+	text-decoration: none !important;
+}
+
+.user-link:hover {
+	color: #FCCB6F;
+}
+
 .bop-btn:hover {
 	cursor: pointer;
 	background: #FCCB6F;
