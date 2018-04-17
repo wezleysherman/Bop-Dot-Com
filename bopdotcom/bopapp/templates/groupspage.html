@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class='userpage' style="color: white; width: 100%; height: content-fit; min-height: 100%; text-align: center; overflow-y: auto;">
+	<div style="font-size: 48px; font-weight: bolder; margin: auto;">Groups you are in</div>
+	{% for group in groups %}
+	<a href="{% url 'group_info' group.group.id %}" style="color: white; text-decoration: none;">
+		<div class="bop" style="text-align: center">
+			<div style = "margin-top: 20px">
+				<div style="font-weight: bolder; display: inline-block; font-size: 34px;">{{group.group.groupName}}</div><i class="fas fa-users fa-4x" style="float:left; display: inline-block;"></i>
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+	<div style="height:150px;"></div>
+</div>
+{% endblock %}
+
+
