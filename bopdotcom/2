@@ -1,0 +1,2 @@
+Requirement already satisfied: django in c:\users\loni_liu\envs\bop\lib\site-packages (1.11.12)
+Requirement already satisfied: pytz in c:\users\loni_liu\envs\bop\lib\site-packages (from django) (2018.3)
