@@ -6,7 +6,9 @@ from django.http import JsonResponse
 def index(request):
 	user = request.user
 	friends = Friend.objects.filter(Q(user1_id = user.id) | Q(user2_id = user.id)).values_list('user1_id', 'user2_id')
-	friendBops = Bop_User.objects.filter(Q(userTo_id__in = [f[0] for f in friends]) | Q(userTo_id__in = [f[1] for f in friends]) | Q(userFrom_id__in = [f[0] for f in friends]) | Q(userFrom_id__in = [f[1] for f in friends])).order_by('-bop__dateBopped')
+	friendBops = Bop_User.objects.filter(Q(userTo_id__in = [f[0] for f in friends]) | 
+		Q(userTo_id__in = [f[1] for f in friends]) | Q(userFrom_id__in = [f[0] for f in friends]) | 
+		Q(userFrom_id__in = [f[1] for f in friends])).order_by('-bop__dateBopped')
 	return render(request, 'mainpage.html', {
 		'current_page': 'main',
 		'name': 'Bop!',
