@@ -7,10 +7,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# User Profile model extensions referenced/used from:
-# https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html
-# Credit: Vitor Freitas for the resource
-# We are not claiming ownership of the method utilized to extend user profiles.
+
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	userName = models.CharField('userName', max_length=256, blank=True)
@@ -51,6 +48,10 @@ class In_Group(models.Model):
 	joined = models.DateTimeField(auto_now_add=True)
 
 # Create a new Profile instance and attach it to Django's default user profile
+# User Profile model extensions referenced/used from:
+# https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html
+# Credit: Vitor Freitas for the resource
+# We are not claiming ownership of the method utilized to extend user profiles.
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
 	if created:
