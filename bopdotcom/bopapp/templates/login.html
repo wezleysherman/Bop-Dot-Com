@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+  <div class="login">
+  	<div class = "bop" style="text-align: center; height : 275px;">
+    <div style="font-size: 24px; font-weight: bolder; color: white;"> Log In</div>
+    <input type="text" placeholder="Enter Username" style = "margin-top: 20px" required>
+
+    <input type="password" placeholder="Enter Password" style = "margin-top: 20px" required>
+    <div id = "loginID" "class = "bop-btn" style="margin-top: 30px;">login</div>
+    
+  </div>
+</div>
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

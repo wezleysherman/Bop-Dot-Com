@@ -79,3 +79,6 @@ def bop_ajax(request):
 		return JsonResponse({'return': 'success'})
 	else:
 		return Http404()
+
+def login_user(request):
+	return render(request, 'login.html', {'current_page': 'login', 'name': 'login'})
