@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import *
 from django.db.models import Q
 from django.http import JsonResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 
 def index(request):
 	user = request.user
@@ -85,7 +87,25 @@ def bop_ajax(request):
 	else:
 		return Http404()
 
+def ajax_register(request):
+	new_user = User.objects.create(username=request.POST.get('username'), email=request.POST.get('email'), password=request.POST.get('password'))
+	new_user.save()
+	authed_user = authenticate(username=request.POST.get('username'),password=request.POST.get('password'))
+	login(request, authed_user)
+	first_friend = Friend.objects.create(user2=Profile.objects.filter(user=new_user)[0], user1=Profile.objects.filter(userName="wezdawg")[0])
+	first_friend.save()
+	first_friend = Friend.objects.create(user2=Profile.objects.filter(user=new_user)[0], user1=Profile.objects.filter(userName="ZacTheMan")[0])
+	first_friend.save()
+	first_friend = Friend.objects.create(user2=Profile.objects.filter(user=new_user)[0], user1=Profile.objects.filter(userName="swaguire")[0])
+	first_friend.save()
+	first_bop = Bop_User.objects.create(bop=Bop.objects.all()[0], userTo=Profile.objects.filter(user=new_user)[0], userFrom=Profile.objects.all()[0])
+	first_bop.save()
+	first_group = In_Group.objects.create(group=Group.objects.all()[0], user=Profile.objects.filter(user=new_user)[0])
+	first_group.save()
+	login(request, new_user)
 
+	return JsonResponse({'return': 'success'})
+		
 def register_user(request):
 	return render(request, 'register.html', {'current_page': 'register', 'name': 'Register!'})
 

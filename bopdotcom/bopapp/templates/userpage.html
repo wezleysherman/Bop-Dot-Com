@@ -23,7 +23,11 @@
 		{% for friend in friends %}
 		<a href="{% url 'userpage' friend.id %}" style="color: white; text-decoration: none;">
 			<div class="bop friend" style="text-align: center">
+				{% if friend.profilePicture.url != '' %}
 				<img class="profile-picture" src="{{friend.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px; height: 80px; width: 80px; margin-top:6px">
+				{% else %}
+				<img class="profile-picture" src="/media_root/profile_pictures/default.png" alt="Profile Picture" style="margin-right: 15px;">
+				{% endif %}
 				<span style="margin-left: 10px; font-weight: bolder; font-size: 44px; padding-top: 6px;">{{friend.userName}}</span>
 			</div>
 		</a>
