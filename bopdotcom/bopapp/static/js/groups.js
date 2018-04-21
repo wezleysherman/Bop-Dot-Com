@@ -14,3 +14,7 @@ $("#ngroup").click(function() {
 		}
 	});
 });
+
+$(".exit").click(function() {
+	$('#addgroup').css('visibility', 'hidden');
+})
