@@ -2,7 +2,10 @@
 {% load static %}
 {% block content %}
 <div class='userpage' style="color: white; width: 100%; height: content-fit; min-height: 100%; text-align: center; overflow-y: auto;">
-	<div style="font-size: 48px; font-weight: bolder; margin: auto;">Groups you are in</div>
+	<div style="font-size: 48px; font-weight: bolder; margin: auto;">Groups You Are In</div>
+	<div id="joingroup" class="bop-btn" style="margin-top:30px; width: 200px">
+		<i class="fas fa-plus-circle" style="margin-right: 15px"></i>Join Group
+	</div>
 	{% for group in groups %}
 	<a href="{% url 'group_info' group.group.id %}" style="color: white; text-decoration: none;">
 		<div class="bop" style="text-align: center">
@@ -14,6 +17,15 @@
 	{% endfor %}
 	<div style="height:150px;"></div>
 </div>
+<div class="bop" id="addgroup" style="position: absolute; width: 600px; height: 500px; top: 10%; right: 30%; text-align: center; visibility: hidden">
+	<div style="color: white; font-size: 24px; font-weight: bolder;">Select Group To Join</div>
+	{% for group in groups_not_joined %}
+	<div class="bop" id="ngroup" data-id="{{group.id}}" style="text-align: center; width: 500px; color: white;">
+		<div style = "margin-top: 20px">
+			<div style="font-weight: bolder; display: inline-block; font-size: 34px;">{{group.groupName}}</div><i class="fas fa-users fa-4x" style="float:left; display: inline-block;"></i>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<script src="{% static 'js/groups.js' %}"></script>
 {% endblock %}
-
-

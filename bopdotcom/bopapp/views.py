@@ -47,10 +47,15 @@ def user_page(request, u_id):
 def groups(request):
 	user = request.user
 	groups = In_Group.objects.filter(user_id = user.id)
+	groups_joined = In_Group.objects.filter(user_id = user.id).values_list("group")
+	groups_not_joined = In_Group.objects.exclude(user_id = user.id).exclude(group__in = groups_joined).values_list("group", flat = True).distinct()
+	groups_not_joined_list = Group.objects.filter(id__in = groups_not_joined)
+
 	return render(request, 'groupspage.html', {
 		'current_page': 'group',
 		'name': 'Bop!',
 		'groups': groups,
+		'groups_not_joined' : groups_not_joined_list,
 		'user': user
 	})
 
@@ -76,6 +81,16 @@ def bop_ajax(request):
 		nbop.save()
 		bopped_user = Bop_User.objects.create(bop=nbop, userFrom=profile, userTo=bopped_user[0])
 		bopped_user.save()
+		return JsonResponse({'return': 'success'})
+	else:
+		return Http404()
+
+def join_group(request):
+	if request.user.is_authenticated:
+		profile = request.user.profile
+		group = Group.objects.filter(id=request.POST.get('id'))
+		joined_group = In_Group.objects.create(user=profile, group=group[0])
+		joined_group.save()
 		return JsonResponse({'return': 'success'})
 	else:
 		return Http404()
