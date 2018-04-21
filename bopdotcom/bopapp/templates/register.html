@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class='register'>
+	<div style="font-size: 48px; font-weight: bolder; margin: auto;">{{group.groupName}}</div>
+	<div class='register_form'> 
+		<h1>Register for Bop!</h1>
+		<label for=username">Username: </label>
+		<input type="text" placeholder="Create your username" name="username" required></input>
+		
+		<label for=password">Password: </label>
+		<input type="text" placeholder="Choose your password" name="password" required></input>
+		
+		<label for=email">Email: </label>
+		<input type="text" placeholder="Add your email" name="email" required></input>
+		
+		<br>
+		<div id="register-btn" id="register">REGISTER</div>
+
+</div>
+
+<script src="{% static 'js/regacc.js' %}"></script>
+
+{% endblock %}

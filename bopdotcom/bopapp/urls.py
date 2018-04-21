@@ -9,5 +9,6 @@ urlpatterns = [
 	path('ajax/bop_someone/', views.bop_ajax, name='bop_ajax'),
 	path('userpage/<int:u_id>/', views.user_page, name='userpage'),
 	path('groups', views.groups, name='groups'),
-	path('groups/<int:g_id>/', views.group_page, name='group_info')
+	path('groups/<int:g_id>/', views.group_page, name='group_info'),
+	path('register', views.register_user, name='register_user')
 ]

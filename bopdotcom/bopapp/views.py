@@ -79,3 +79,6 @@ def bop_ajax(request):
 		return JsonResponse({'return': 'success'})
 	else:
 		return Http404()
+
+def register_user(request):
+	return render(request, 'register.html', {'current_page': 'register', 'name': 'Register!'})
