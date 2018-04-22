@@ -5,7 +5,11 @@
 	<div style="font-size: 48px; font-weight: bolder; margin: auto;">Select a friend you'd like to bop!</div>
 	{% for friend in friends %}
 	<div class="bop friend" data-friend="{{friend.id}}" style="text-align: center">
+		{% if friend.profilePicture.url != '' %}
 		<img class="profile-picture" src="{{friend.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px; height: 80px; width: 80px; margin-top:6px">
+		{% else %}
+		<img class="profile-picture" src="/media_root/profile_pictures/default.png" alt="Profile Picture" style="margin-left: 15px;">
+		{% endif %}
 		<span style="margin-left: 10px; font-weight: bolder; font-size: 44px; padding-top: 6px;">{{friend.userName}}</span>
 	</div>
 	{% endfor %}

@@ -7,6 +7,7 @@
 	<script src="{% static 'jquery/jquery.cookie.js' %}"></script>
 	<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
 	<script defer src="{% static 'js/fontawesome/fontawesome-all.js' %}"></script>
+	<script src="{% static 'js/csfr.js' %}"></script>
 </head>
 <body>
 	<div class="main" style="min-height: 100%; min-width: 100%;">
@@ -16,6 +17,7 @@
 					<img class="logo" src="/media_root/logo.png" alt="Bop Logo" style="margin-left: 15px;">
 				</div>
 			</a>
+			{% if user.is_authenticated %}
 			<a href="{% url 'userpage' user.id%}">
 				<div class="nav-item" style="color: white; display: inline-block; float:right; width: 250px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px;">
 					{% if user.profile.profilePicture.url != '' %}
@@ -36,6 +38,7 @@
 					<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">My Groups</div>
 				</div>
 			</a>
+			{% endif %}
 		</div>
 		{% block content %}
 		{% endblock %}

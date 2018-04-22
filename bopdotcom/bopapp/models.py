@@ -37,6 +37,7 @@ class Bop_User(models.Model):
 	bop = models.ForeignKey(Bop, on_delete=models.CASCADE, null=False)
 	userFrom = models.ForeignKey(Profile, related_name='from_user', on_delete=models.CASCADE, null=False)
 	userTo = models.ForeignKey(Profile, related_name='to_user', on_delete=models.CASCADE, null=False)
+	
 
 class Group(models.Model):
 	groupName = models.CharField('name', max_length=512, blank=True)
@@ -55,7 +56,7 @@ class In_Group(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
 	if created:
-		Profile.objects.create(user=instance)
+		Profile.objects.create(user=instance, userName=instance.username)
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):

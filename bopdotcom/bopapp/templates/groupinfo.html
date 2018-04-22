@@ -6,7 +6,11 @@
 	{% for p in people %}
 	<a href="{% url 'userpage' p.id %}" style="color: white; text-decoration: none;">
 		<div class="bop friend" style="text-align: center">
+			{% if p.profilePicture.url != '' %}
 			<img class="profile-picture" src="{{p.profilePicture.url}}" alt="Profile Picture" style="margin-left: 15px; height: 80px; width: 80px; margin-top:6px">
+			{% else %}
+			<img class="profile-picture" src="/media_root/profile_pictures/default.png" alt="Profile Picture" style="margin-left: 15px;">
+			{% endif %}
 			<span style="margin-left: 10px; font-weight: bolder; font-size: 44px; padding-top: 6px;">{{p.userName}}</span>
 		</div>
 	</a>

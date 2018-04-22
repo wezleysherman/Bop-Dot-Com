@@ -1,10 +1,9 @@
-
 .main {
 	background: #432e64;
 }
 
 .bop-btn {
-	background:#FFB326;
+	background:#FA8505;
 	border-radius: 5px;
 	width: 150px;
 	height: 60px;
@@ -17,7 +16,6 @@
 	border-width: 5px;
 	border-color: white;
 }
-
 
 .user-link {
 	color:white;
@@ -89,6 +87,22 @@
 	border-radius: 2px;
 }
 
+.exit:hover {
+	background: #281A66;	
+	cursor: pointer;
+}
+
+.exit {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	color: white;
+	border-color: white;
+	border: solid;
+	border-width: 2px;
+}
+
 .logo {
 	height: 100px;
 	position: relative;
@@ -109,3 +123,67 @@
 	display:block;
 }
 
+
+.register
+{
+	background-color: #432e64;
+	width: 100%;
+	height: 100%;
+}
+
+.register_form
+{
+	margin: 0 auto;
+	width: 60%;
+	height: 500px;
+	background-color: #0E004A;
+	text-align: center;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+	margin-top: 50px;
+}
+
+.register_form h1
+{
+	font-size: 42px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+
+.register_form input
+{
+	margin: 0 auto;
+	display:block;
+	margin-bottom:25px;
+	padding: 5px;
+}
+
+.register_form label
+{
+	margin-bottom: 10px;
+	padding-bottom: 0px;
+	color: grey;
+	font-size: 18px;
+}
+
+#register-btn
+{
+	background:#FA8505;
+	border-radius: 5px;
+	width: 150px;
+	height: 60px;
+	margin: auto;
+	margin-top: 10px;
+	font-weight: bolder;
+	font-size: 24px;
+	padding-top: 8px;
+	border: solid;
+	border-width: 5px;
+	border-color: white;
+	color: white;
+}
