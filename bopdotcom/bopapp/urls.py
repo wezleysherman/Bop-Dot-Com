@@ -10,5 +10,7 @@ urlpatterns = [
 	path('ajax/join_group/', views.join_group, name='join_group'),
 	path('userpage/<int:u_id>/', views.user_page, name='userpage'),
 	path('groups', views.groups, name='groups'),
-	path('groups/<int:g_id>/', views.group_page, name='group_info')
+	path('groups/<int:g_id>/', views.group_page, name='group_info'),
+	path('ajax/register_ajax/', views.ajax_register, name='register_user_ajax'),
+	path('register', views.register_user, name='register_user')
 ]
