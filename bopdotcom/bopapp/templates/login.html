@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="login" style="color: black">
+  	<div class = "bop" style="text-align: center; height : 350px;">
+    <div style="font-size: 24px; font-weight: bolder; color: white;"> Log In</div>
+    <input id="username" type="text" placeholder="Enter Username" style = "margin-top: 20px">
+    <input id="password" type="password" placeholder="Enter Password" style = "margin-top: 20px">
+    <div id = "login-btn" class="bop-btn" style="margin-top: 30px; color: white;">login</div>
+    <a href="{% url 'register_user' %}" style="text-decoration: none; color:white;"><div id = "loginID" class = "bop-btn" style="margin-top: 30px; height: 50px; width: 125px; font-size: 16px; padding-bottom: 20px;"><span>Register</span></div></a>
+</div>
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

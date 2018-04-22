@@ -38,9 +38,13 @@
 					<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">My Groups</div>
 				</div>
 			</a>
+			<div id="logout" class="nav-item {% if current_page == 'group' %} active {% endif %}" style="color: white; display: inline-block; float:left; width: 200px; height: 100%; text-align: center; border: solid; border-width: 0px; border-left-width: 1px; border-right-width: 1px;">
+					<div style="font-size: 22px; font-weight: bolder; margin-top:15px;">Log Out</div>
+			</div>
 			{% endif %}
 		</div>
 		{% block content %}
 		{% endblock %}
 	</div>
 </body>
+<script src="{% static 'js/logout.js' %}"></script>

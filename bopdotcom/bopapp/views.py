@@ -3,7 +3,7 @@ from .models import *
 from django.db.models import Q
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 def index(request):
 	if(request.user.is_authenticated):
@@ -19,7 +19,7 @@ def index(request):
 			'user': user
 		})
 	else:
-		return redirect('register_user')
+		return redirect('login_user')
 
 def bop_someone(request):
 	if(request.user.is_authenticated):
@@ -33,7 +33,7 @@ def bop_someone(request):
 			'user': user
 		})
 	else:
-		return redirect('register_user')
+		return redirect('login_user')
 
 def user_page(request, u_id):
 	if(request.user.is_authenticated):
@@ -53,7 +53,7 @@ def user_page(request, u_id):
 			'user': cuser
 		})
 	else:
-		return redirect('register_user')
+		return redirect('login_user')
 
 def groups(request):
 	if(request.user.is_authenticated):
@@ -71,7 +71,7 @@ def groups(request):
 			'user': user
 		})
 	else:
-		return redirect('register_user')
+		return redirect('login_user')
 
 def group_page(request, g_id):
 	if(request.user.is_authenticated):
@@ -87,7 +87,7 @@ def group_page(request, g_id):
 			'user': user
 		})
 	else:
-		return redirect('register_user')
+		return redirect('login_user')
 
 def bop_ajax(request):
 	if request.user.is_authenticated:
@@ -101,6 +101,9 @@ def bop_ajax(request):
 		return JsonResponse({'return': 'success'})
 	else:
 		return Http404()
+
+def login_user(request):
+	return render(request, 'login.html', {'current_page': 'login', 'name': 'login'})
 
 def ajax_register(request):
 	# Create a new user, give them some friends and groups, then authenticate and log them in.
@@ -116,11 +119,24 @@ def ajax_register(request):
 	first_bop.save()
 	first_group = In_Group.objects.create(group=Group.objects.all()[0], user=Profile.objects.filter(user=new_user)[0])
 	first_group.save()
-	authed_user = authenticate(request, username=request.POST.get('username'),password=request.POST.get('password'))
+	authed_user = authenticate(username=request.POST.get('username'),password=request.POST.get('password'))
 	login(request, authed_user)
 
 	return redirect('index')
-		
+
+def ajax_login(request):
+	authed_user = authenticate(username=request.POST.get('username'),password=request.POST.get('password'))
+	print(authed_user)
+	if(authed_user):
+		login(request, authed_user)
+		return redirect('index')
+	else:
+		return JsonResponse({'return': 'err'})
+
+def ajax_logout(request):
+	logout(request)
+	return redirect('index')
+
 def register_user(request):
 	return render(request, 'register.html', {'current_page': 'register', 'name': 'Register!'})
 
