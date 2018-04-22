@@ -87,6 +87,22 @@
 	border-radius: 2px;
 }
 
+.exit:hover {
+	background: #281A66;	
+	cursor: pointer;
+}
+
+.exit {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	color: white;
+	border-color: white;
+	border: solid;
+	border-width: 2px;
+}
+
 .logo {
 	height: 100px;
 	position: relative;
