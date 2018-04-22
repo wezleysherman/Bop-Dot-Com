@@ -11,7 +11,9 @@ urlpatterns = [
 	path('userpage/<int:u_id>/', views.user_page, name='userpage'),
 	path('groups', views.groups, name='groups'),
 	path('groups/<int:g_id>/', views.group_page, name='group_info'),
-	path('login', views.login_user, name = 'login_user')
+	path('login', views.login_user, name = 'login_user'),
 	path('ajax/register_ajax/', views.ajax_register, name='register_user_ajax'),
+	path('ajax/login_ajax/', views.ajax_login, name='login_user_ajax'),
+	path('ajax/logout/', views.ajax_logout, name='logout_user_ajax'),
 	path('register', views.register_user, name='register_user')
 ]
