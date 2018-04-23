@@ -107,6 +107,8 @@ def login_user(request):
 
 def ajax_register(request):
 	# Create a new user, give them some friends and groups, then authenticate and log them in.
+	# Django authentication referenced from:
+	# https://docs.djangoproject.com/en/2.0/topics/auth/default/
 	new_user = User.objects.create_user(username=request.POST.get('username'), email=request.POST.get('email'), password=request.POST.get('password'))
 	new_user.save()
 	first_friend = Friend.objects.create(user2=Profile.objects.filter(user=new_user)[0], user1=Profile.objects.filter(userName="wezdawg")[0])

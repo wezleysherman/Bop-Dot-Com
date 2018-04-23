@@ -1,3 +1,8 @@
+/* JQuery Ajax calls referenced from:
+ * http://api.jquery.com/jquery.ajax/
+ *
+ * https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html
+ */
 $('#register-btn').click(function() {
 	var username = $('#username').val();
 	var password = $('#password').val();
@@ -10,7 +15,7 @@ $('#register-btn').click(function() {
 			'password' : password,
 			'email' : email
 		},
-		success: function(resp) {
+		success: function(r) {
 			window.location.assign('');
 		}
 	});
