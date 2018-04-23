@@ -4,6 +4,11 @@ $('.friend').click(function() {
 	friendID = $(this).data('friend');
 });
 
+/* JQuery Ajax calls referenced from:
+ * http://api.jquery.com/jquery.ajax/
+ *
+ * https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html
+ */
 $('#bop-btn').click(function() {
 	var message = $('#bopmessage').val();
 	$.ajax({
@@ -13,7 +18,7 @@ $('#bop-btn').click(function() {
 			'friend': friendID,
 			'msg' : message
 		},
-		success: function(resp) {
+		success: function(r) {
 			window.location.assign('');
 		}
 	});

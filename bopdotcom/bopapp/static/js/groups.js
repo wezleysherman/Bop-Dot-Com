@@ -2,6 +2,11 @@ $("#joingroup").click(function() {
 	$('#addgroup').css('visibility', 'visible');
 });
 
+/* JQuery Ajax calls referenced from:
+ * http://api.jquery.com/jquery.ajax/
+ *
+ * https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html
+ */
 $("#ngroup").click(function() {
 	$.ajax({
 		url: '/ajax/join_group/',
@@ -9,7 +14,7 @@ $("#ngroup").click(function() {
 		data: {
 			'id': $(this).data("id")
 		},
-		success: function(resp) {
+		success: function(r) {
 			window.location.assign('');
 		}
 	});
