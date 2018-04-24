@@ -19,7 +19,7 @@ $('#bop-btn').click(function() {
 			'msg' : message
 		},
 		success: function(r) {
-			window.location.assign('');
+			window.location.assign('http://127.0.0.1:8000');
 		}
 	});
 });

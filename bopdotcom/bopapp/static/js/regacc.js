@@ -16,7 +16,7 @@ $('#register-btn').click(function() {
 			'email' : email
 		},
 		success: function(r) {
-			window.location.assign('');
+			window.location.assign('http://127.0.0.1:8000');
 		}
 	});
 });

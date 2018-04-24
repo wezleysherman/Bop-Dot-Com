@@ -25,9 +25,21 @@ To access shell/database:
 - Type: 'python manage.py shell' (Make sure you are using Python3 or higher!)
 
 
+Once active, you will go to 'http://127.0.0.1:8000' in either Safari or Google Chrome
+- To Log in:
+- Either register a new account and hit the 'Bop dot com' logo to be transfered to the main page
+- Or log in via our credentials:
+- username: wezleysherman
+- password: mypassword
+- Click 'login' 
+- Then click the 'Bop dot com' logo to go to the site index
+
 
 If something doesn't work:
 
 Contact: Wezley Sherman at wsherma2@asu.edu
 
 Thank you! :)
+
+
+

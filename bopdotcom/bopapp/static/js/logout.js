@@ -9,7 +9,7 @@ $('#logout').click(function() {
 		url: '/ajax/logout/',
 		type: 'POST',
 		success: function(r) {
-			window.location.assign('');
+			window.location.assign('http://127.0.0.1:8000');
 		}
 	});
 });
