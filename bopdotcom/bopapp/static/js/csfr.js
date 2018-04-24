@@ -10,7 +10,7 @@
  *
  * CSFR Token is used for ajax calls (Communicating frontend with the backend).
  * This code utilizes jquery.cookie library to generate a CSRF token to allow POST access.
- * This code is very generic and is utilized in any Django web app that utilizes ajax calls.
+ * This code is very generic and is utilized in any Django web app that utilizes ajax calls via JQuery.
  *
  * All credit goes to Fivef for the following snippet:
  */

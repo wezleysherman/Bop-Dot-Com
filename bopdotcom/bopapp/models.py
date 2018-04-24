@@ -38,7 +38,6 @@ class Bop_User(models.Model):
 	userFrom = models.ForeignKey(Profile, related_name='from_user', on_delete=models.CASCADE, null=False)
 	userTo = models.ForeignKey(Profile, related_name='to_user', on_delete=models.CASCADE, null=False)
 	
-
 class Group(models.Model):
 	groupName = models.CharField('name', max_length=512, blank=True)
 	dateCreated = models.DateTimeField(auto_now_add=True)
