@@ -13,12 +13,12 @@ $("#login-btn").click(function() {
 			'username': username,
 			'password' : password,
 		},
-		success: function(rp) {
+		success: function(r) {
 			if(r['return'] == 'err') {
 				$('#username').css('background-color', 'red');
 				$('#password').css('background-color', 'red');
 			} else {
-				window.location.assign('');
+				window.location.assign('http://127.0.0.1:8000');
 			}
 		}
 	});

@@ -22,5 +22,8 @@ from django.views.static import serve
 urlpatterns = [
 	path('', include('bopapp.urls')),
     url(r'^admin/', admin.site.urls),
+    # Handling media root URLS referenced from:
+    # https://stackoverflow.com/questions/5517950/django-media-url-and-media-root
+    # Credits: Micah Carrick & Vishes Shell
     path('<path:path>', serve, {'document_root': ''})
 ]

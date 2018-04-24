@@ -5,6 +5,9 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 
+# Making queries referenced from Django Docs at:
+# https://docs.djangoproject.com/en/2.0/topics/db/queries/
+
 def index(request):
 	if(request.user.is_authenticated):
 		user = request.user
